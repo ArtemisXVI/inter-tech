@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inter-Tech</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+
+    body { background: #0b0f0c; color: #e8f5e9; line-height: 1.6; }
+
+    header {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background: rgba(10,20,15,0.95);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 24px; border-bottom: 1px solid #1b5e20;
+    }
+
+    .logo { font-size: 1.4rem; font-weight: bold; color: #66bb6a; cursor: pointer; }
+
+    nav a { margin-left: 20px; color: #c8e6c9; text-decoration: none; font-weight: 500; }
+    nav a:hover { color: #66bb6a; }
+
+    main { padding-top: 100px; }
+
+    section { padding: 80px 8%; }
+
+    .hero { text-align: center; }
+    .hero h1 { font-size: 3rem; color: #81c784; margin-bottom: 16px; }
+
+    .projects {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+      gap: 32px; margin-top: 40px;
+    }
+
+    .card {
+      background: #101915; border-radius: 14px; overflow: hidden;
+      cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    .card:hover { transform: translateY(-6px); box-shadow: 0 16px 35px rgba(0,0,0,0.6); }
+
+    .card img { width: 100%; height: 200px; object-fit: cover; }
+
+    .card-content { padding: 20px; }
+    .card h3 { color: #66bb6a; margin-bottom: 10px; }
+
+    .detail-page { display: none; max-width: 900px; margin: auto; }
+
+    .detail-page img {
+      width: 100%; max-height: 400px; object-fit: cover;
+      border-radius: 14px; margin: 24px 0;
+    }
+
+    .back-btn {
+      background: none; border: 1px solid #66bb6a; color: #66bb6a;
+      padding: 10px 20px; border-radius: 20px; cursor: pointer;
+    }
+
+    .support { text-align: center; padding: 120px 8%; border-top: 1px solid #1b5e20; }
+
+    .support button {
+      background: #2e7d32; color: white; border: none;
+      padding: 16px 32px; font-size: 1.1rem; border-radius: 30px;
+      cursor: pointer;
+    }
+
+    footer { text-align: center; padding: 20px; color: #81c784; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo" onclick="showHome()">Inter-Tech</div>
+  <nav>
+    <a href="#" onclick="showHome()">Home</a>
+    <a href="#" onclick="openProject('drone')">Drone</a>
+    <a href="#" onclick="openProject('bionic')">Bionic Arm</a>
+    <a href="#" onclick="openProject('laptop')">Laptop</a>
+    <a href="#" onclick="openProject('green')">Green Tech</a>
+    <a href="#" onclick="showSupport()">Support</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HOME -->
+  <section id="home">
+    <div class="hero">
+      <h1 style="font-size:4rem; letter-spacing:2px;">INTER‑TECH</h1>
+      <h2 style="font-size:2.2rem; margin-top:10px; color:#66bb6a;">Engineering the World of 2040</h2>
+      <p style="max-width:900px; margin:30px auto; font-size:1.15rem;">
+        Inter-Tech is a future-focused technology organization dedicated to solving humanity’s most critical challenges through innovation, responsibility, and long-term thinking. We believe technology should not simply move fast — it should move with purpose. Every system we design, every product we develop, and every project we launch is aligned with one clear objective: creating a better, safer, and more sustainable world by the year 2040.
+      </p>
+      <p style="max-width:900px; margin:20px auto; font-size:1.05rem; color:#c8e6c9;">
+        From intelligent machines that protect the environment to human-centered augmentation technologies and energy-efficient computing, Inter-Tech operates at the intersection of ethics, science, and impact. We do not chase trends. We build foundations for the future.
+      </p>
+    </div>
+
+    <p style="max-width:1000px; margin:50px auto 20px; text-align:center; font-size:1.05rem;">
+      Below are flagship initiatives representing Inter-Tech’s long-term roadmap. Each project is a pillar in our 2040 vision — addressing environmental sustainability, human empowerment, and responsible technological progress. Click any project to explore its purpose, philosophy, and long-term impact.
+    </p>
+    <div class="projects">
+      <div class="card" onclick="openProject('drone')">
+        <img src="https://images.unsplash.com/photo-1508615070457-7baeba4003a1">
+        <div class="card-content">
+          <h3>Autonomous Drone</h3>
+          <p>AI-powered aerial systems.</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openProject('bionic')">
+        <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc">
+        <div class="card-content">
+          <h3>Bionic Arm</h3>
+          <p>Human + machine integration.</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openProject('laptop')">
+        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8">
+        <div class="card-content">
+          <h3>CoreBook Laptop</h3>
+          <p>Efficient computing for the future.</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openProject('green')">
+        <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231">
+        <div class="card-content">
+          <h3>Green Tech Initiative</h3>
+          <p>Renewable energy systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT DETAIL -->
+  <section id="detail" class="detail-page"></section>
+
+  <!-- SUPPORT -->
+  <section id="support" class="support" style="display:none;">
+    <h2>Tech Support</h2>
+    <p>We help innovators move forward.</p><br>
+    <button onclick="alert('Support portal launching soon 🚀')">Contact Support</button>
+  </section>
+
+</main>
+
+<footer>© 2026 Inter-Tech — Innovating Toward 2040</footer>
+
+<script>
+  const detail = document.getElementById('detail');
+  const home = document.getElementById('home');
+  const support = document.getElementById('support');
+
+  const projects = {
+    drone: {
+      title: 'Autonomous Drone Project',
+      img: 'https://images.unsplash.com/photo-1473968512647-3e447244af8f',
+      text: 'The Inter-Tech Autonomous Drone is built to observe, protect, and restore the planet. Its core mission is environmental awareness — monitoring forests, oceans, and disaster zones in real time. By 2040, these drones will act as silent guardians of Earth, gathering data that helps humanity respond faster to climate threats while minimizing human risk.'
+    },
+    bionic: {
+      title: 'Bionic Arm Program',
+      img: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc',
+      text: 'The Bionic Arm Program exists to redefine what it means to be human. Inter-Tech believes technology should empower people, not replace them. This project focuses on restoring independence, enhancing strength, and creating ethical human–machine collaboration — a cornerstone of our 2040 vision.'
+    },
+    laptop: {
+      title: 'Inter-Tech CoreBook',
+      img: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8',
+      text: 'CoreBook is not just a laptop — it is a tool for change. Designed for innovators, researchers, and problem-solvers, it emphasizes energy efficiency, longevity, and repairability. By reducing electronic waste and empowering creators, CoreBook supports Inter-Tech’s mission of sustainable innovation by 2040.'
+    },
+    green: {
+      title: 'Green Technology Initiative',
+      img: 'https://images.unsplash.com/photo-1509395176047-4a66953fd231',
+      text: 'The Green Technology Initiative is the heart of Inter-Tech’s purpose. From renewable energy systems to intelligent resource management, this initiative aims to help the world transition to clean energy at scale. Our goal is simple: make sustainability the default by the year 2040.'
+    }
+  };
+
+  function openProject(key) {
+    const p = projects[key];
+    home.style.display = 'none';
+    support.style.display = 'none';
+    detail.style.display = 'block';
+
+    detail.innerHTML = `
+      <button class="back-btn" onclick="showHome()">← Back</button>
+      <h2 style="margin-top:20px; color:#66bb6a;">${p.title}</h2>
+      <img src="${p.img}">
+      <p>${p.text}</p>
+    `;
+  }
+
+  function showHome() {
+    detail.style.display = 'none';
+    support.style.display = 'none';
+    home.style.display = 'block';
+  }
+
+  function showSupport() {
+    detail.style.display = 'none';
+    home.style.display = 'none';
+    support.style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
